@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankieta Motoryzacyjna</title>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #bdc3c7;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #3d3d3d;
+            border-radius: 8px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], 
+        select, 
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background: #3d3d3d;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-option {
+            background: #383838;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .radio-option:hover {
+            background: #444;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            accent-color: var(--primary-color);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Ankieta Motoryzacyjna</h1>
+    <p class="description">Podziel się swoją pasją i opinią o przyszłości dróg.</p>
+
+    <form id="surveyForm">
+        <!-- METRYCZKA -->
+        <section>
+            <h2>I. Metryczka</h2>
+            <div class="question">
+                <label>Wiek:</label>
+                <select required>
+                    <option value="">Wybierz...</option>
+                    <option>poniżej 18</option>
+                    <option>18–25</option>
+                    <option>26–40</option>
+                    <option>41–60</option>
+                    <option>60+</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>Miejsce zamieszkania:</label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="loc" value="wieś"> Wieś</label>
+                    <label class="radio-option"><input type="radio" name="loc" value="miasto_m"> Miasto od 50 do 75 tys.</label>
+                    <label class="radio-option"><input type="radio" name="loc" value="miasto_m"> Miasto od 75 do 100 tys.</label>
+                    <label class="radio-option"><input type="radio" name="loc" value="miasto_d"> Miasto powyżej 100 tys.</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- PYTANIA ZAMKNIĘTE -->
+        <section>
+            <h2>II. Preferencje</h2>
+            
+            <div class="question">
+                <label>1. Jaki rodzaj napędu uważasz za najbardziej przyszłościowy?</label>
+                <select>
+                    <option>Silnik spalinowy</option>
+                    <option>Hybryda</option>
+                    <option>Napęd elektryczny (BEV)</option>
+                    <option>Napęd wodorowy</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label>2. Jak często korzystasz z samochodu?</label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="freq"> Codziennie</label>
+                    <label class="radio-option"><input type="radio" name="freq"> Kilka razy w tygodniu</label>
+                    <label class="radio-option"><input type="radio" name="freq"> Sporadycznie</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>3. Co jest kluczowe przy wyborze auta?</label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="key"> Cena i koszty</label>
+                    <label class="radio-option"><input type="radio" name="key"> Bezpieczeństwo</label>
+                    <label class="radio-option"><input type="radio" name="key"> Design / Wygląd</label>
+                </div>
+            </div>
+            
+            <div class="question">
+                <label>4. Czy kupiłbyś auto marki chińskiej?</label>
+                <select>
+                    <option>Tak</option>
+                    <option>Nie</option>
+                    <option>Nie mam zdania</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label>5. Ulubiony typ nadwozia:</label>
+                <select>
+                    <option>SUV</option>
+                    <option>Sedan</option>
+                    <option>Hatchback</option>
+                    <option>Kombi</option>
+                    <option>Kabriolet</option>
+                    <option>Limuzyna</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- PYTANIA OTWARTE -->
+        <section>
+            <h2>III. Twoja Opinia</h2>
+            
+            <div class="question">
+                <label>6. Jaka marka samochodu jest Twoją ulubioną i dlaczego?</label>
+                <textarea rows="3"></textarea>
+            </div>
+
+            <div class="question">
+                <label>7. Co sądzisz o wprowadzanych w Europie Strefach Czystego Transportu (zakaz wjazdu starszych aut do centrów miast)?</label>
+                <textarea rows="3"></textarea>
+            </div>
+
+            <div class="question">
+                <label>8. Wymień trzy najważniejsze elementy wyposażenia, bez których nie wyobrażasz sobie nowoczesnego samochodu.</label>
+                <input type="text" placeholder="np. klimatyzacja, CarPlay...">
+            </div>
+
+            <div class="question">
+                <label>9. Jakie są według Ciebie największe wady samochodów elektrycznych w obecnych czasach?</label>
+                <textarea rows="3"></textarea>
+            </div>
+
+            <div class="question">
+                <label>10. Jak wyobrażasz sobie motoryzację za 30 lat? (np. auta autonomiczne, latające, brak własności prywatnej)?</label>
+                <textarea rows="4"></textarea>
+            </div>
+        </section>
+
+        <button type="button" onclick="alert('Dziękujemy! Twoja praca domowa (ankieta) została wysłana (symulacja).')">Wyślij ankietę</button>
+    </form>
+</div>
+
+<footer>
+    Projekt wykonany na zadanie domowe &copy; 2026
+</footer>
+
+</body>
+</html>
